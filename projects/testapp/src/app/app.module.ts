@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { NgxFormsModule } from 'ngx-forms';
@@ -11,5 +11,6 @@ import { BoxModule } from './modules/box/box.module';
   imports: [AceEditorModule, BrowserModule, BoxModule, NgxFormsModule],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

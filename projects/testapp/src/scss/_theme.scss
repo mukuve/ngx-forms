@@ -1,7 +1,8 @@
 $colors: (
-  'dark': #353840,
-  'light': #f2f5f8,
-  'primary': #485e7b,
+  "dark": #353840,
+  "light": #f2f5f8,
+  "primary": #485e7b,
+  "info": #3399aa,
 );
 
 @function get-color($name, $alpha: 1) {

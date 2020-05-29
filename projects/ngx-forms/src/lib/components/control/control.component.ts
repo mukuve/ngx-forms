@@ -1,7 +1,13 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  HostBinding,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { ControlType, ControlTypes } from './../../common/types';
+import { ControlTheme, ControlType, ControlTypes } from './../../common/types';
 
 @Component({
   selector: 'ngx-form-control',
@@ -17,6 +23,7 @@ import { ControlType, ControlTypes } from './../../common/types';
 })
 export class NgxFormControlComponent implements OnInit, ControlValueAccessor {
   @Input() type: ControlType;
+  @Input() theme: ControlTheme = 'filled';
   @Input() title: string;
   @Input() props: { [key: string]: any };
 
@@ -28,12 +35,21 @@ export class NgxFormControlComponent implements OnInit, ControlValueAccessor {
 
   constructor() {}
 
+  @HostBinding('attr.theme') get classes() {
+    return `${this.theme}`;
+  }
+
   ngOnInit() {
     this.id = `${Number(new Date())}-${this.type}`;
-    console.log(`Control ${this.type} init!!`);
     if (!(this.type in ControlTypes)) {
       console.error(`Invalid control type '${this.type}'.`);
     }
+  }
+
+  setValue(value: any) {
+    this.value = value;
+    this.onTouched();
+    this.onChange(this.value);
   }
 
   // ControlValueAccessor
@@ -51,9 +67,5 @@ export class NgxFormControlComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean) {
     this.disabled = isDisabled;
-  }
-
-  test(...args: any[]) {
-    console.log(args);
   }
 }

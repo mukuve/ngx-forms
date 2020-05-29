@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Form } from '../../common/form';
+import { ControlTheme } from './../../common/types';
 
 @Component({
   selector: 'ngx-form',
@@ -10,6 +11,7 @@ import { Form } from '../../common/form';
 export class NgxFormComponent implements OnInit {
   currentForm: Form;
   controls: any[];
+  @Input() theme: ControlTheme = 'filled';
 
   constructor() {}
 

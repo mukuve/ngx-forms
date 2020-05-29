@@ -3,6 +3,10 @@
 :host {
   background-color: transparent;
   padding: 1rem;
+  .form-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
   .form-content {
     @include flex(column nowrap, stretch);
     ngx-form-control {

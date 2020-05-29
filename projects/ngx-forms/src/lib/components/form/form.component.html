@@ -1,10 +1,11 @@
 <ng-container *ngIf="currentForm">
   <div class="form-header" *ngIf="currentForm.title">
-    {{ form.title }}
+    {{ currentForm?.title }}
   </div>
   <form [formGroup]="currentForm" class="form-content">
     <ngx-form-control
       *ngFor="let iteration of controls || []"
+      [theme]="theme"
       [formControlName]="iteration.key"
       [title]="iteration.control.title"
       [type]="iteration.control.type"

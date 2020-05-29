@@ -14,17 +14,20 @@ export class AppComponent implements AfterViewInit {
   form: Form;
   json = `
   {
-    "title": "",
+    "title": "Test form",
     "controls": {
       "test1": {
         "order": 1,
-        "title": "Test control 1",
+        "title": "username",
         "type": "input"
       },
       "test2": {
         "order": 2,
-        "title": "Test control 2",
-        "type": "select"
+        "title": "password",
+        "type": "input",
+        "props": {
+          "type": "password"
+        }
       }
     }
   }
@@ -76,9 +79,10 @@ export class AppComponent implements AfterViewInit {
   }
 
   onBtnClick(code: string) {
-    console.log(`btn ${code} clicked!`);
-    if (code === 'RUN') {
-      this.updateForm();
+    switch (code) {
+      case 'RUN':
+        this.updateForm();
+        break;
     }
   }
 
@@ -87,11 +91,14 @@ export class AppComponent implements AfterViewInit {
     try {
       this.zone.run(() => {
         const obj: ServerForm = JSON.parse(this.json);
-        console.log(obj);
         this.form = new Form(obj.title, obj.controls, []);
       });
     } catch (e) {
       console.error(e);
     }
+  }
+
+  printValues() {
+    console.log('Values:', this.form.values);
   }
 }

@@ -1,0 +1,34 @@
+@import "../../../scss/mixins";
+
+:host {
+  @include flex(column nowrap, flex-start, center);
+}
+
+:host[theme="filled"] {
+  font-size: var(--control-font-size, 16px);
+  .control-label {
+    color: var(--label-color, #6a6a6aaa);
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+    padding: 3px;
+  }
+
+  .control-element {
+    font-size: inherit;
+    border: none;
+    outline: none !important;
+    padding: 0.6rem 0.9rem;
+    background: var(--control-background, #e2e2e2aa);
+    border-radius: var(--control-radius, 4px);
+    color: var(--control-color, #333);
+    &:-webkit-autofill,
+    &:-internal-autofill-selected,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: none !important;
+      -webkit-text-fill-color: inherit !important;
+      -webkit-box-shadow: none !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}

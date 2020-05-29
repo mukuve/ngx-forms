@@ -12,6 +12,7 @@ export enum ControlTypes {
   view = 'view',
 }
 export type ControlType = keyof typeof ControlTypes;
+export type ControlTheme = 'outline' | 'filled' | 'underline';
 
 export type ControlConfig = {
   title?: string;

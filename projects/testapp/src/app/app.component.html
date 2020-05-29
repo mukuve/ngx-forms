@@ -8,15 +8,13 @@
     (btnClick)="onBtnClick($event)"
   >
     <ace-editor [(text)]="json" #editor></ace-editor>
-    <!-- <pre>
-      <code>
-        {{json}}
-      </code>
-    </pre> -->
   </ngx-box>
   <ngx-box [title]="'Result'">
     <div class="frame-screen">
       <ngx-form [form]="form"></ngx-form>
+      <button class="form-button" (click)="printValues()">
+        Print values (console)
+      </button>
     </div>
   </ngx-box>
 </main>
