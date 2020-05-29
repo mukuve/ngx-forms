@@ -1,6 +1,6 @@
 {
   "name": "ngx-forms-library",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,9 +11,9 @@
     "clean": "rimraf dist",
     "watch-lib:ngx-forms": "ng build ngx-forms --watch",
     "serve:app": "wait-on dist/ngx-forms/public-api.d.ts && ng serve",
-    "watch": "npm run clean && run-p watch-lib:* serve:app"
+    "start:dev": "npm run clean && run-p watch-lib:* serve:app"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~9.1.7",
     "@angular/common": "~9.1.7",
