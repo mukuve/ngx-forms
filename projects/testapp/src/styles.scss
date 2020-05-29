@@ -1,0 +1,35 @@
+@import "~normalize.css";
+@import "./scss/theme";
+@import "./scss/mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  @include flex;
+  height: 80px;
+  flex: 0 0 80px;
+  background: get-color("primary");
+  color: get-color("light");
+  padding: 0.6rem;
+  box-shadow: 0 3px 6px -3px get-color("dark", 0.5);
+  z-index: 10;
+}
+
+main {
+  @include flex(row nowrap, stretch);
+  background-color: get-color("light");
+  flex: 1 0;
+}
+
+footer {
+  background-color: get-color("dark");
+}

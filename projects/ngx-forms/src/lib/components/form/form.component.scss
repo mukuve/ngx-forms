@@ -1,0 +1,12 @@
+@import "./../../../scss/mixins";
+
+:host {
+  background-color: transparent;
+  padding: 1rem;
+  .form-content {
+    @include flex(column nowrap, stretch);
+    ngx-form-control {
+      margin-bottom: 10px;
+    }
+  }
+}

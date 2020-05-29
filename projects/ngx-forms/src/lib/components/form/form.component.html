@@ -1,0 +1,15 @@
+<ng-container *ngIf="currentForm">
+  <div class="form-header" *ngIf="currentForm.title">
+    {{ form.title }}
+  </div>
+  <form [formGroup]="currentForm" class="form-content">
+    <ngx-form-control
+      *ngFor="let iteration of controls || []"
+      [formControlName]="iteration.key"
+      [title]="iteration.control.title"
+      [type]="iteration.control.type"
+      [props]="iteration.control.props"
+    >
+    </ngx-form-control>
+  </form>
+</ng-container>

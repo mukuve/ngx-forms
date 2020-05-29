@@ -1,0 +1,22 @@
+<header>
+  <h1>@mukuve/ngx-form</h1>
+</header>
+<main>
+  <ngx-box
+    [title]="'JSON'"
+    [btns]="[{ code: 'RUN', icon: 'fa-play', color: '#333' }]"
+    (btnClick)="onBtnClick($event)"
+  >
+    <ace-editor [(text)]="json" #editor></ace-editor>
+    <!-- <pre>
+      <code>
+        {{json}}
+      </code>
+    </pre> -->
+  </ngx-box>
+  <ngx-box [title]="'Result'">
+    <div class="frame-screen">
+      <ngx-form [form]="form"></ngx-form>
+    </div>
+  </ngx-box>
+</main>

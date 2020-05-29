@@ -1,0 +1,16 @@
+<div class="toolbar">
+  <span class="title">{{ title }}</span>
+  <div class="toolbar-btns">
+    <button
+      *ngFor="let btn of btns"
+      (click)="btnClick.emit(btn?.code)"
+      [ngStyle]="btn?.styles"
+    >
+      <!-- <ons-icon [attr.icon]="btn?.icon || 'fa-book'" size="16px"></ons-icon> -->
+      <span *ngIf="btn?.text">{{ btn?.text }}</span>
+    </button>
+  </div>
+</div>
+<div class="content">
+  <ng-content></ng-content>
+</div>

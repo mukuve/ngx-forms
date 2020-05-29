@@ -1,0 +1,28 @@
+<label class="control-label" [for]="id">{{ title }}</label>
+<ng-container [ngSwitch]="type">
+  <ng-container *ngSwitchCase="'input'">
+    <input
+      class="control-element"
+      [attr.id]="id"
+      [type]="props?.type || 'text'"
+      (change)="test($event)"
+    />
+  </ng-container>
+  <ng-container *ngSwitchCase="'area'">
+    <textarea
+      class="control-element"
+      [attr.id]="id"
+      [attr.rows]="props?.rows || 4"
+    ></textarea>
+  </ng-container>
+  <ng-container *ngSwitchCase="'select'">{{ type }}</ng-container>
+  <ng-container *ngSwitchCase="'ref'">{{ type }}</ng-container>
+  <ng-container *ngSwitchCase="'image'">
+    <div class="control-element">
+      <input [id]="id" type="file" hidden class="control-shadow" />
+      <label [for]="id" class="control-mask"></label>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'view'">{{ type }}</ng-container>
+  <ng-container *ngSwitchDefault> Invalid '{{ type }}' type </ng-container>
+</ng-container>

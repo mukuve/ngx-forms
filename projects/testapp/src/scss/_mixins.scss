@@ -1,0 +1,11 @@
+@mixin flex($flow: row nowrap, $align: center, $justify: flex-start) {
+  display: flex;
+  flex-flow: $flow;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

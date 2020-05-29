@@ -1,0 +1,9 @@
+$colors: (
+  'dark': #353840,
+  'light': #f2f5f8,
+  'primary': #485e7b,
+);
+
+@function get-color($name, $alpha: 1) {
+  @return rgba(map-get($colors, $name), $alpha);
+}
